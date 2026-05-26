@@ -35,31 +35,9 @@
     color: var(--text);
     font-family: 'JetBrains Mono', monospace;
     overflow-x: hidden;
-    cursor: none;
   }
 
-  /* ── CUSTOM CURSOR ── */
-  #cursor {
-    width: 10px; height: 10px;
-    background: var(--accent);
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 9999;
-    transform: translate(-50%,-50%);
-    transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, background 0.2s;
-    mix-blend-mode: screen;
-  }
-  #cursor-ring {
-    width: 36px; height: 36px;
-    border: 1px solid rgba(79,142,247,0.4);
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 9998;
-    transform: translate(-50%,-50%);
-    transition: transform 0.18s ease, width 0.25s ease, height 0.25s ease, opacity 0.2s;
-  }
-  body:hover #cursor { width: 10px; }
-  a:hover ~ #cursor, button:hover ~ #cursor { width: 20px; height: 20px; }
+  /* cursor removed */
 
   /* ── NOISE OVERLAY ── */
   body::before {
@@ -116,6 +94,7 @@
     font-size: 0.44rem; letter-spacing: 0.22em; color: var(--muted);
     text-transform: uppercase; font-family: 'JetBrains Mono', monospace;
   }
+  .nav-logo-m { color: var(--accent); }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
     color: var(--muted); text-decoration: none;
@@ -185,7 +164,7 @@
     padding: 0.8rem 1.8rem; border-radius: 3px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase;
-    text-decoration: none; cursor: none;
+    text-decoration: none;
     transition: all 0.25s ease;
   }
   .btn-primary {
@@ -447,11 +426,35 @@
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
   }
+  /* ── SCROLL REVEAL SYSTEM ── */
   .reveal {
-    opacity: 0; transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1),
+                transform 0.75s cubic-bezier(0.22,1,0.36,1);
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* Directional variants */
+  .reveal-left {
+    opacity: 0; transform: translateX(-40px);
+    transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1),
+                transform 0.75s cubic-bezier(0.22,1,0.36,1);
+  }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+  .reveal-right {
+    opacity: 0; transform: translateX(40px);
+    transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1),
+                transform 0.75s cubic-bezier(0.22,1,0.36,1);
+  }
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+  .reveal-scale {
+    opacity: 0; transform: scale(0.92);
+    transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+                transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  }
+  .reveal-scale.visible { opacity: 1; transform: scale(1); }
 
   /* ── HAMBURGER / MOBILE NAV ── */
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: none; background: none; border: none; padding: 4px; }
@@ -490,7 +493,7 @@
     border-radius: 3px; padding: 0.35rem 0.7rem;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.65rem; letter-spacing: 0.12em;
-    color: var(--muted); cursor: none;
+    color: var(--muted);
     transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
     white-space: nowrap;
   }
@@ -508,15 +511,12 @@
 <body>
 
 <!-- CURSOR -->
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
-
 <!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">
     <div class="nav-logo-dot"></div>
     <div class="nav-logo-text">
-      <span class="nav-logo-phm">PHM<span>.</span></span>
+      <span class="nav-logo-phm">PH<span class="nav-logo-m">M</span><span>.</span></span>
       <span class="nav-logo-sub">Backend Dev</span>
     </div>
   </a>
@@ -599,10 +599,10 @@
 
 <!-- ABOUT -->
 <section id="about">
-  <p class="section-label reveal" data-i18n="about_label">// 01 — Sobre</p>
+  <p class="section-label reveal-left" data-i18n="about_label">// 01 — Sobre</p>
   <h2 class="section-title reveal" data-i18n="about_title">Quem Sou</h2>
   <div class="about-grid">
-    <div class="about-text reveal">
+    <div class="about-text reveal-left">
       <p>
         <span data-i18n="about_p1">Sou <strong>Pedro Henrique Maciel</strong>, desenvolvedor backend baseado no
         <strong>Rio de Janeiro, Brasil</strong>, focado em construir
@@ -622,7 +622,7 @@
         para me tornar um engenheiro backend mais completo.</span>
       </p>
     </div>
-    <div class="code-block reveal">
+    <div class="code-block reveal-right">
       <div class="code-header">
         <div class="dot dot-r"></div>
         <div class="dot dot-y"></div>
@@ -658,10 +658,10 @@
 <!-- SKILLS -->
 <section id="skills">
   <div class="skills-inner">
-    <p class="section-label reveal">// 02 — Stack</p>
+    <p class="section-label reveal-left">// 02 — Stack</p>
     <h2 class="section-title reveal" data-i18n="skills_title">Tecnologias</h2>
     <div class="skills-grid">
-      <div class="skill-card reveal">
+      <div class="skill-card reveal-scale">
         <div class="skill-card-icon">☕</div>
         <div class="skill-card-title">Backend</div>
         <p style="font-size:.78rem;color:var(--muted);line-height:1.6"><span data-i18n="skill_backend_desc">Stack principal para construção de APIs e sistemas server-side.</span></p>
@@ -674,7 +674,7 @@
           <span class="tag">JPA / Hibernate</span>
         </div>
       </div>
-      <div class="skill-card reveal">
+      <div class="skill-card reveal-scale">
         <div class="skill-card-icon">🗄️</div>
         <div class="skill-card-title" data-i18n="skill_db">Bancos de Dados</div>
         <p style="font-size:.78rem;color:var(--muted);line-height:1.6"><span data-i18n="skill_db_desc">Bancos relacionais, modelagem e otimização de queries.</span></p>
@@ -685,7 +685,7 @@
           <span class="tag">Data Modeling</span>
         </div>
       </div>
-      <div class="skill-card reveal">
+      <div class="skill-card reveal-scale">
         <div class="skill-card-icon">⚙️</div>
         <div class="skill-card-title" data-i18n="skill_devops">DevOps &amp; Ferramentas</div>
         <p style="font-size:.78rem;color:var(--muted);line-height:1.6"><span data-i18n="skill_devops_desc">Ferramentas de workflow, conteinerização e colaboração.</span></p>
@@ -697,7 +697,7 @@
           <span class="tag">IntelliJ IDEA</span>
         </div>
       </div>
-      <div class="skill-card reveal">
+      <div class="skill-card reveal-scale">
         <div class="skill-card-icon">🏗️</div>
         <div class="skill-card-title" data-i18n="skill_arch">Arquitetura</div>
         <p style="font-size:.78rem;color:var(--muted);line-height:1.6"><span data-i18n="skill_arch_desc">Princípios e padrões para sistemas escaláveis e sustentáveis.</span></p>
@@ -715,7 +715,7 @@
 
 <!-- PROJECTS -->
 <section id="projects">
-  <p class="section-label reveal" data-i18n="proj_label">// 03 — Projetos</p>
+  <p class="section-label reveal-left" data-i18n="proj_label">// 03 — Projetos</p>
   <h2 class="section-title reveal" data-i18n="proj_title">Projetos em Destaque</h2>
   <div class="projects-grid">
 
@@ -809,22 +809,22 @@
 <!-- STATS -->
 <section id="stats">
   <div class="stats-inner">
-    <p class="section-label reveal" data-i18n="stats_label">// 04 — Números</p>
+    <p class="section-label reveal-left" data-i18n="stats_label">// 04 — Números</p>
     <h2 class="section-title reveal" data-i18n="stats_title">Em Números</h2>
     <div class="stats-row">
-      <div class="stat-item reveal">
+      <div class="stat-item reveal-scale">
         <div class="stat-num" data-target="33">0</div>
         <div class="stat-label" data-i18n="stat_repos">Repositórios</div>
       </div>
-      <div class="stat-item reveal">
+      <div class="stat-item reveal-scale">
         <div class="stat-num" data-target="5">0</div>
         <div class="stat-label" data-i18n="stat_projects">Projetos</div>
       </div>
-      <div class="stat-item reveal">
+      <div class="stat-item reveal-scale">
         <div class="stat-num" data-target="2">0</div>
         <div class="stat-label" data-i18n="stat_years">Anos Desenvolvendo</div>
       </div>
-      <div class="stat-item reveal">
+      <div class="stat-item reveal-scale">
         <div class="stat-num" data-target="100" data-suffix="%">0</div>
         <div class="stat-label" data-i18n="stat_commit">Comprometimento</div>
       </div>
@@ -834,7 +834,7 @@
 
 <!-- PHM BRAND -->
 <section id="brand" style="padding:7rem 3rem;max-width:1100px;margin:0 auto;">
-  <p class="section-label reveal" data-i18n="brand_label">// 05 — Identidade</p>
+  <p class="section-label reveal-left" data-i18n="brand_label">// 05 — Identidade</p>
   <h2 class="section-title reveal" data-i18n="brand_title">A Marca</h2>
   <p style="font-size:0.82rem;color:var(--muted);max-width:520px;line-height:1.8;margin-bottom:4rem;" class="reveal">
     <span data-i18n="brand_desc">A marca <strong style="color:var(--text)">PHM</strong> representa a identidade profissional construída sobre
@@ -846,13 +846,13 @@
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;">
 
     <!-- PRIMARY MARK -->
-    <div class="reveal brand-card brand-card--primary" style="background:var(--bg2);border:1px solid rgba(79,142,247,0.3);border-radius:8px;padding:2.5rem;display:flex;flex-direction:column;align-items:center;gap:1.8rem;position:relative;overflow:hidden;">
+    <div class="brand-card reveal-scale brand-card--primary" style="background:var(--bg2);border:1px solid rgba(79,142,247,0.3);border-radius:8px;padding:2.5rem;display:flex;flex-direction:column;align-items:center;gap:1.8rem;position:relative;overflow:hidden;">
       <div style="position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:160px;height:160px;background:radial-gradient(circle,rgba(79,142,247,0.08),transparent 70%);pointer-events:none;"></div>
       <div style="font-size:0.6rem;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;border:1px solid rgba(79,142,247,0.3);padding:0.2rem 0.7rem;border-radius:2px;" data-i18n="brand_primary">Marca Principal</div>
       <div style="display:flex;align-items:center;gap:0.9rem;">
         <div style="width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent), 0 0 28px rgba(79,142,247,0.4);flex-shrink:0;"></div>
         <div style="display:flex;flex-direction:column;gap:4px;">
-          <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.7rem;letter-spacing:0.16em;color:var(--text);line-height:1;">PHM<span style="color:var(--accent)">.</span></span>
+          <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.7rem;letter-spacing:0.16em;color:var(--text);line-height:1;">PH<span style="color:var(--accent)">M</span><span style="color:var(--accent)">.</span></span>
           <span style="font-size:0.5rem;letter-spacing:0.26em;color:var(--muted);text-transform:uppercase;font-family:'JetBrains Mono',monospace;">Backend Dev</span>
         </div>
       </div>
@@ -862,12 +862,12 @@
     </div>
 
     <!-- DARK VARIANT -->
-    <div class="reveal brand-card" style="background:#080a0f;border:1px solid var(--border);border-radius:8px;padding:2.5rem;display:flex;flex-direction:column;align-items:center;gap:1.8rem;">
+    <div class="brand-card reveal-scale" style="background:#080a0f;border:1px solid var(--border);border-radius:8px;padding:2.5rem;display:flex;flex-direction:column;align-items:center;gap:1.8rem;">
       <div style="font-size:0.6rem;letter-spacing:0.2em;color:var(--muted2);text-transform:uppercase;" data-i18n="brand_dark">Variante Escura</div>
       <div style="display:flex;align-items:center;gap:0.9rem;">
         <div style="width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);flex-shrink:0;"></div>
         <div style="display:flex;flex-direction:column;gap:3px;">
-          <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:0.16em;color:var(--text);line-height:1;">PHM<span style="color:var(--accent)">.</span></span>
+          <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:0.16em;color:var(--text);line-height:1;">PH<span style="color:var(--accent)">M</span><span style="color:var(--accent)">.</span></span>
           <span style="font-size:0.44rem;letter-spacing:0.24em;color:var(--muted);text-transform:uppercase;font-family:'JetBrains Mono',monospace;">Backend Dev</span>
         </div>
       </div>
@@ -875,12 +875,12 @@
     </div>
 
     <!-- LIGHT VARIANT<!-- LIGHT VARIANT -->
-    <div class="reveal brand-card" style="background:#f0f2f7;border:1px solid #d0d8e8;border-radius:8px;padding:2.5rem;display:flex;flex-direction:column;align-items:center;gap:1.8rem;">
+    <div class="brand-card reveal-scale" style="background:#f0f2f7;border:1px solid #d0d8e8;border-radius:8px;padding:2.5rem;display:flex;flex-direction:column;align-items:center;gap:1.8rem;">
       <div style="font-size:0.6rem;letter-spacing:0.2em;color:#8090b0;text-transform:uppercase;" data-i18n="brand_light">Variante Clara</div>
       <div style="display:flex;align-items:center;gap:0.9rem;">
         <div style="width:8px;height:8px;border-radius:50%;background:#2563eb;box-shadow:0 0 10px #2563eb;flex-shrink:0;"></div>
         <div style="display:flex;flex-direction:column;gap:3px;">
-          <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:0.16em;color:#0d1117;line-height:1;">PHM<span style="color:#2563eb">.</span></span>
+          <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:0.16em;color:#0d1117;line-height:1;">PH<span style="color:#2563eb">M</span><span style="color:#2563eb">.</span></span>
           <span style="font-size:0.44rem;letter-spacing:0.24em;color:#6b7a99;text-transform:uppercase;font-family:'JetBrains Mono',monospace;">Backend Dev</span>
         </div>
       </div>
@@ -888,13 +888,13 @@
     </div>
 
     <!-- FUTURE COMPANY<!-- FUTURE COMPANY -->
-    <div class="reveal brand-card" style="background:linear-gradient(135deg,#0a0e1a,#0d1525);border:1px solid rgba(79,142,247,0.25);border-radius:8px;padding:2.5rem;display:flex;flex-direction:column;align-items:center;gap:1.8rem;position:relative;overflow:hidden;">
+    <div class="brand-card reveal-scale" style="background:linear-gradient(135deg,#0a0e1a,#0d1525);border:1px solid rgba(79,142,247,0.25);border-radius:8px;padding:2.5rem;display:flex;flex-direction:column;align-items:center;gap:1.8rem;position:relative;overflow:hidden;">
       <div style="position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(79,142,247,0.1),transparent 70%);pointer-events:none;"></div>
       <div style="font-size:0.6rem;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;border:1px solid rgba(79,142,247,0.3);padding:0.2rem 0.6rem;border-radius:2px;" data-i18n="brand_company">Futura Empresa</div>
       <div style="display:flex;align-items:center;gap:0.9rem;">
         <div style="width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent), 0 0 24px rgba(79,142,247,0.35);flex-shrink:0;"></div>
         <div style="display:flex;flex-direction:column;gap:4px;">
-          <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:0.16em;color:var(--text);line-height:1;">PHM<span style="color:var(--accent)">.</span></span>
+          <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:0.16em;color:var(--text);line-height:1;">PH<span style="color:var(--accent)">M</span><span style="color:var(--accent)">.</span></span>
           <span style="font-size:0.44rem;letter-spacing:0.24em;color:var(--muted);text-transform:uppercase;font-family:'JetBrains Mono',monospace;">Backend Dev</span>
         </div>
       </div>
@@ -909,7 +909,7 @@
 
 <!-- CONTACT<!-- CONTACT -->
 <section id="contact">
-  <p class="section-label reveal" data-i18n="contact_label">// 06 — Contato</p>
+  <p class="section-label reveal-left" data-i18n="contact_label">// 06 — Contato</p>
   <h2 class="contact-big reveal"><span data-i18n="contact_big1">Vamos construir<br/></span><span data-i18n="contact_big2" style="color:var(--accent)">algo juntos.</span></h2>
   <p class="contact-sub reveal">
     <span data-i18n="contact_sub1">Aberto a novas oportunidades, colaborações e projetos interessantes.</span><br/>
@@ -933,46 +933,27 @@
 </footer>
 
 <script>
-/* ── CURSOR ── */
-const cursor = document.getElementById('cursor');
-const ring   = document.getElementById('cursor-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-function animateCursor() {
-  rx += (mx - rx) * 0.12;
-  ry += (my - ry) * 0.12;
-  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
-  ring.style.left   = rx + 'px'; ring.style.top  = ry + 'px';
-  requestAnimationFrame(animateCursor);
-}
-animateCursor();
-document.querySelectorAll('a,button').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.width = '18px'; cursor.style.height = '18px';
-    ring.style.width = '52px'; ring.style.height = '52px';
-    ring.style.borderColor = 'rgba(79,142,247,0.6)';
-  });
-  el.addEventListener('mouseleave', () => {
-    cursor.style.width = '10px'; cursor.style.height = '10px';
-    ring.style.width = '36px'; ring.style.height = '36px';
-    ring.style.borderColor = 'rgba(79,142,247,0.4)';
-  });
-});
+/* cursor removed */
 
 /* ── REVEAL ON SCROLL ── */
-const reveals = document.querySelectorAll('.reveal');
+const revealSelectors = '.reveal, .reveal-left, .reveal-right, .reveal-scale';
+const allReveals = document.querySelectorAll(revealSelectors);
+
 const io = new IntersectionObserver(entries => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      const siblings = [...e.target.parentElement.querySelectorAll('.reveal')];
-      const idx = siblings.indexOf(e.target);
-      e.target.style.transitionDelay = (idx * 0.08) + 's';
-      e.target.classList.add('visible');
-      io.unobserve(e.target);
-    }
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    // Stagger siblings of the same container
+    const parent = el.parentElement;
+    const siblings = [...parent.querySelectorAll(revealSelectors)];
+    const idx = siblings.indexOf(el);
+    el.style.transitionDelay = (idx * 0.1) + 's';
+    el.classList.add('visible');
+    io.unobserve(el);
   });
-}, { threshold: 0.12 });
-reveals.forEach(r => io.observe(r));
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+allReveals.forEach(r => io.observe(r));
 
 /* ── COUNT UP ── */
 function countUp(el) {
