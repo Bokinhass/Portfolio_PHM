@@ -523,6 +523,7 @@
   <ul class="nav-links">
     <li><a href="#about" data-i18n="nav_about">Sobre</a></li>
     <li><a href="#skills">Stack</a></li>
+    <li><a href="#featured" data-i18n="nav_featured">Air Ops</a></li>
     <li><a href="#projects" data-i18n="nav_projects">Projetos</a></li>
     <li><a href="#brand" data-i18n="nav_brand">Marca</a></li>
     <li><a href="#contact" data-i18n="nav_contact">Contato</a></li>
@@ -542,7 +543,7 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-tag" data-i18n="hero_tag">// Desenvolvedor Backend</div>
+  <div class="hero-tag" data-i18n="hero_tag">// Backend Engineer</div>
 
   <h1 class="hero-name">
     Pedro<br/>Henrique<br/>
@@ -679,29 +680,167 @@
   </div>
 </section>
 
+<!-- FEATURED PROJECT -->
+<section id="featured" style="padding:7rem 3rem;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div style="max-width:1100px;margin:0 auto;">
+    <p class="section-label reveal-left" data-i18n="feat_label">// 03 — Featured Project</p>
+    <h2 class="section-title reveal" data-i18n="feat_title">Air Ops System</h2>
+
+    <!-- HERO CARD -->
+    <div class="reveal" style="background:var(--bg3);border:1px solid rgba(79,142,247,0.25);border-radius:8px;overflow:hidden;margin-bottom:2rem;position:relative;">
+      <!-- top accent bar -->
+      <div style="height:3px;background:linear-gradient(90deg,var(--accent),rgba(79,142,247,0.2),transparent);"></div>
+      <div style="padding:2.5rem 2.5rem 0;">
+        <!-- header row -->
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:1.8rem;">
+          <div>
+            <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.6rem;">
+              <span style="font-size:0.62rem;letter-spacing:0.18em;color:var(--accent);text-transform:uppercase;border:1px solid rgba(79,142,247,0.3);padding:0.2rem 0.6rem;border-radius:2px;" data-i18n="feat_badge">Sistema Real em Produção</span>
+              <span style="font-size:0.62rem;letter-spacing:0.1em;color:var(--green);background:var(--green-dim);border:1px solid rgba(34,211,165,0.2);padding:0.2rem 0.6rem;border-radius:2px;">● <span data-i18n="status_active">Ativo</span></span>
+            </div>
+            <h3 style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.6rem;color:var(--text);line-height:1.1;" data-i18n="feat_name">Air Support Division — Backend System</h3>
+            <p style="font-size:0.78rem;color:var(--muted);margin-top:0.5rem;letter-spacing:0.04em;" data-i18n="feat_sub">API REST · JWT Auth · RBAC · Docker · PostgreSQL · Swagger</p>
+          </div>
+          <div style="display:flex;gap:0.8rem;flex-shrink:0;">
+            <a href="https://github.com/phmacieldev/air-ops-system" target="_blank" class="btn btn-secondary" style="font-size:0.7rem;padding:0.6rem 1.1rem;" data-i18n="feat_btn_back">Backend →</a>
+            <a href="https://github.com/phmacieldev/air-ops-system-web" target="_blank" class="btn btn-secondary" style="font-size:0.7rem;padding:0.6rem 1.1rem;" data-i18n="feat_btn_front">Frontend →</a>
+          </div>
+        </div>
+
+        <!-- description -->
+        <p style="font-size:0.85rem;color:var(--muted);line-height:1.85;max-width:780px;margin-bottom:2rem;" data-i18n="feat_desc">
+          Sistema operacional completo para gestão interna de uma divisão aérea, com hierarquia de 7 ranks, autenticação JWT stateless, controle de acesso granular por função (RBAC), sistema de score automático para progressão de pilotos, logs de voo, relatórios de desempenho e integração com Discord via webhooks.
+        </p>
+
+        <!-- architecture diagram -->
+        <div style="margin-bottom:2rem;">
+          <div style="font-size:0.65rem;letter-spacing:0.15em;color:var(--muted2);text-transform:uppercase;margin-bottom:1rem;" data-i18n="feat_arch_label">// Arquitetura</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden;">
+            <!-- client -->
+            <div style="background:var(--bg2);padding:1.2rem;text-align:center;">
+              <div style="font-size:1.4rem;margin-bottom:0.4rem;">🖥️</div>
+              <div style="font-size:0.7rem;font-weight:600;color:var(--text);margin-bottom:0.3rem;" data-i18n="arch_client">Frontend</div>
+              <div style="font-size:0.6rem;color:var(--muted);letter-spacing:0.05em;">Next.js · TypeScript · shadcn/ui</div>
+            </div>
+            <!-- arrow -->
+            <div style="background:var(--bg2);padding:1.2rem;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.3rem;">
+              <div style="font-size:0.6rem;color:var(--accent);letter-spacing:0.1em;">HTTP / REST</div>
+              <div style="font-size:0.9rem;color:var(--accent);">⟷</div>
+              <div style="font-size:0.55rem;color:var(--muted2);">JWT Bearer</div>
+            </div>
+            <!-- api -->
+            <div style="background:var(--bg3);padding:1.2rem;text-align:center;border:1px solid rgba(79,142,247,0.2);">
+              <div style="font-size:1.4rem;margin-bottom:0.4rem;">⚙️</div>
+              <div style="font-size:0.7rem;font-weight:600;color:var(--accent);margin-bottom:0.3rem;">Spring Boot API</div>
+              <div style="font-size:0.6rem;color:var(--muted);letter-spacing:0.05em;">Java 21 · Port 8080</div>
+            </div>
+            <!-- arrow -->
+            <div style="background:var(--bg2);padding:1.2rem;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.3rem;">
+              <div style="font-size:0.6rem;color:var(--muted);letter-spacing:0.1em;">JPA / SQL</div>
+              <div style="font-size:0.9rem;color:var(--muted);">⟷</div>
+              <div style="font-size:0.55rem;color:var(--muted2);">Docker</div>
+            </div>
+            <!-- db -->
+            <div style="background:var(--bg2);padding:1.2rem;text-align:center;">
+              <div style="font-size:1.4rem;margin-bottom:0.4rem;">🗄️</div>
+              <div style="font-size:0.7rem;font-weight:600;color:var(--text);margin-bottom:0.3rem;">PostgreSQL</div>
+              <div style="font-size:0.6rem;color:var(--muted);letter-spacing:0.05em;">Docker Compose</div>
+            </div>
+            <!-- arrow -->
+            <div style="background:var(--bg2);padding:1.2rem;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.3rem;">
+              <div style="font-size:0.6rem;color:var(--muted);letter-spacing:0.1em;">Webhook</div>
+              <div style="font-size:0.9rem;color:var(--muted);">→</div>
+            </div>
+            <!-- discord -->
+            <div style="background:var(--bg2);padding:1.2rem;text-align:center;">
+              <div style="font-size:1.4rem;margin-bottom:0.4rem;">💬</div>
+              <div style="font-size:0.7rem;font-weight:600;color:var(--text);margin-bottom:0.3rem;">Discord</div>
+              <div style="font-size:0.6rem;color:var(--muted);letter-spacing:0.05em;">Relatórios em tempo real</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- highlights grid -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);border-top:1px solid var(--border);">
+        <div style="background:var(--bg2);padding:1.4rem 1.8rem;">
+          <div style="font-size:0.62rem;letter-spacing:0.15em;color:var(--muted2);text-transform:uppercase;margin-bottom:0.6rem;" data-i18n="feat_h1_label">Autenticação</div>
+          <div style="font-size:0.82rem;color:var(--text);line-height:1.6;" data-i18n="feat_h1">JWT stateless · Spring Security 7 · <code style="font-size:0.72rem;color:var(--accent);background:rgba(79,142,247,0.08);padding:0.1rem 0.3rem;border-radius:2px;">@PreAuthorize</code> por role</div>
+        </div>
+        <div style="background:var(--bg2);padding:1.4rem 1.8rem;">
+          <div style="font-size:0.62rem;letter-spacing:0.15em;color:var(--muted2);text-transform:uppercase;margin-bottom:0.6rem;" data-i18n="feat_h2_label">Hierarquia</div>
+          <div style="font-size:0.82rem;color:var(--text);line-height:1.6;" data-i18n="feat_h2">7 ranks · TRAINEE → LEAD · imunidade a rebaixamento automático</div>
+        </div>
+        <div style="background:var(--bg2);padding:1.4rem 1.8rem;">
+          <div style="font-size:0.62rem;letter-spacing:0.15em;color:var(--muted2);text-transform:uppercase;margin-bottom:0.6rem;" data-i18n="feat_h3_label">Score Engine</div>
+          <div style="font-size:0.82rem;color:var(--text);line-height:1.6;"><code style="font-size:0.72rem;color:var(--green);background:rgba(34,211,165,0.08);padding:0.1rem 0.3rem;border-radius:2px;">seizures×5 + chases×3 + ops×3 − accidents×5</code></div>
+        </div>
+        <div style="background:var(--bg2);padding:1.4rem 1.8rem;">
+          <div style="font-size:0.62rem;letter-spacing:0.15em;color:var(--muted2);text-transform:uppercase;margin-bottom:0.6rem;">Swagger</div>
+          <div style="font-size:0.82rem;color:var(--text);line-height:1.6;" data-i18n="feat_h4">Documentação completa · fluxo de autorização JWT integrado</div>
+        </div>
+      </div>
+
+      <!-- endpoint preview -->
+      <div style="padding:1.8rem 2.5rem;border-top:1px solid var(--border);">
+        <div style="font-size:0.65rem;letter-spacing:0.15em;color:var(--muted2);text-transform:uppercase;margin-bottom:1rem;" data-i18n="feat_endpoints_label">// Endpoints principais</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+          <span style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;padding:0.3rem 0.7rem;background:rgba(34,211,165,0.08);border:1px solid rgba(34,211,165,0.2);border-radius:3px;color:var(--green);">POST /auth/login</span>
+          <span style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;padding:0.3rem 0.7rem;background:rgba(79,142,247,0.08);border:1px solid rgba(79,142,247,0.2);border-radius:3px;color:var(--accent);">GET /pilots</span>
+          <span style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;padding:0.3rem 0.7rem;background:rgba(79,142,247,0.08);border:1px solid rgba(79,142,247,0.2);border-radius:3px;color:var(--accent);">POST /flights</span>
+          <span style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;padding:0.3rem 0.7rem;background:rgba(79,142,247,0.08);border:1px solid rgba(79,142,247,0.2);border-radius:3px;color:var(--accent);">POST /flights/{id}/review</span>
+          <span style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;padding:0.3rem 0.7rem;background:rgba(79,142,247,0.08);border:1px solid rgba(79,142,247,0.2);border-radius:3px;color:var(--accent);">GET /reports</span>
+          <span style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;padding:0.3rem 0.7rem;background:rgba(79,142,247,0.08);border:1px solid rgba(79,142,247,0.2);border-radius:3px;color:var(--accent);">POST /reports/{id}/review</span>
+          <span style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;padding:0.3rem 0.7rem;background:rgba(231,70,70,0.08);border:1px solid rgba(231,70,70,0.2);border-radius:3px;color:#f87171;">DELETE /users/{id}</span>
+          <span style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;padding:0.3rem 0.7rem;background:rgba(79,142,247,0.08);border:1px solid rgba(79,142,247,0.2);border-radius:3px;color:var(--accent);">GET /documents</span>
+        </div>
+      </div>
+
+      <!-- rank table -->
+      <div style="padding:0 2.5rem 2rem;border-top:1px solid var(--border);margin-top:1.5rem;">
+        <div style="font-size:0.65rem;letter-spacing:0.15em;color:var(--muted2);text-transform:uppercase;margin:1.5rem 0 1rem;" data-i18n="feat_ranks_label">// Hierarquia de Ranks</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+          <span style="font-size:0.62rem;font-family:'JetBrains Mono',monospace;padding:0.25rem 0.6rem;background:rgba(79,142,247,0.15);border:1px solid rgba(79,142,247,0.35);border-radius:3px;color:var(--accent);">LEAD <span style="opacity:0.6">lv.10</span></span>
+          <span style="font-size:0.62rem;font-family:'JetBrains Mono',monospace;padding:0.25rem 0.6rem;background:rgba(79,142,247,0.1);border:1px solid rgba(79,142,247,0.25);border-radius:3px;color:var(--accent);">SUPERVISOR <span style="opacity:0.6">lv.6</span></span>
+          <span style="font-size:0.62rem;font-family:'JetBrains Mono',monospace;padding:0.25rem 0.6rem;background:rgba(79,142,247,0.08);border:1px solid rgba(79,142,247,0.2);border-radius:3px;color:var(--accent);">INSTRUCTOR <span style="opacity:0.6">lv.5</span></span>
+          <span style="font-size:0.62rem;font-family:'JetBrains Mono',monospace;padding:0.25rem 0.6rem;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;color:var(--muted);">PILOT_SENIOR <span style="opacity:0.6">lv.4</span></span>
+          <span style="font-size:0.62rem;font-family:'JetBrains Mono',monospace;padding:0.25rem 0.6rem;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;color:var(--muted);">PILOT_PLENO <span style="opacity:0.6">lv.3</span></span>
+          <span style="font-size:0.62rem;font-family:'JetBrains Mono',monospace;padding:0.25rem 0.6rem;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;color:var(--muted);">PILOT_STANDARD <span style="opacity:0.6">lv.2</span></span>
+          <span style="font-size:0.62rem;font-family:'JetBrains Mono',monospace;padding:0.25rem 0.6rem;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;color:var(--muted);">TRAINEE <span style="opacity:0.6">lv.1</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- stack pills -->
+    <div style="display:flex;flex-wrap:wrap;gap:0.6rem;" class="reveal">
+      <span style="font-size:0.68rem;padding:0.3rem 0.8rem;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;color:var(--muted);font-family:'JetBrains Mono',monospace;">Java 21</span>
+      <span style="font-size:0.68rem;padding:0.3rem 0.8rem;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;color:var(--muted);font-family:'JetBrains Mono',monospace;">Spring Boot 4</span>
+      <span style="font-size:0.68rem;padding:0.3rem 0.8rem;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;color:var(--muted);font-family:'JetBrains Mono',monospace;">Spring Security 7</span>
+      <span style="font-size:0.68rem;padding:0.3rem 0.8rem;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;color:var(--muted);font-family:'JetBrains Mono',monospace;">JWT</span>
+      <span style="font-size:0.68rem;padding:0.3rem 0.8rem;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;color:var(--muted);font-family:'JetBrains Mono',monospace;">PostgreSQL</span>
+      <span style="font-size:0.68rem;padding:0.3rem 0.8rem;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;color:var(--muted);font-family:'JetBrains Mono',monospace;">JPA / Hibernate</span>
+      <span style="font-size:0.68rem;padding:0.3rem 0.8rem;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;color:var(--muted);font-family:'JetBrains Mono',monospace;">Docker Compose</span>
+      <span style="font-size:0.68rem;padding:0.3rem 0.8rem;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;color:var(--muted);font-family:'JetBrains Mono',monospace;">Swagger / OpenAPI</span>
+      <span style="font-size:0.68rem;padding:0.3rem 0.8rem;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;color:var(--muted);font-family:'JetBrains Mono',monospace;">Discord Webhooks</span>
+      <span style="font-size:0.68rem;padding:0.3rem 0.8rem;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;color:var(--muted);font-family:'JetBrains Mono',monospace;">Lombok</span>
+      <span style="font-size:0.68rem;padding:0.3rem 0.8rem;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;color:var(--muted);font-family:'JetBrains Mono',monospace;">Bean Validation</span>
+      <span style="font-size:0.68rem;padding:0.3rem 0.8rem;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;color:var(--muted);font-family:'JetBrains Mono',monospace;opacity:0.6;">—</span>
+      <span style="font-size:0.68rem;padding:0.3rem 0.8rem;background:rgba(79,142,247,0.06);border:1px solid rgba(79,142,247,0.18);border-radius:3px;color:var(--muted);font-family:'JetBrains Mono',monospace;">Next.js</span>
+      <span style="font-size:0.68rem;padding:0.3rem 0.8rem;background:rgba(79,142,247,0.06);border:1px solid rgba(79,142,247,0.18);border-radius:3px;color:var(--muted);font-family:'JetBrains Mono',monospace;">TypeScript</span>
+      <span style="font-size:0.68rem;padding:0.3rem 0.8rem;background:rgba(79,142,247,0.06);border:1px solid rgba(79,142,247,0.18);border-radius:3px;color:var(--muted);font-family:'JetBrains Mono',monospace;">shadcn/ui</span>
+      <span style="font-size:0.68rem;padding:0.3rem 0.8rem;background:rgba(79,142,247,0.06);border:1px solid rgba(79,142,247,0.18);border-radius:3px;color:var(--muted);font-family:'JetBrains Mono',monospace;">Tailwind CSS</span>
+    </div>
+  </div>
+</section>
+
 <!-- PROJECTS -->
 <section id="projects">
-  <p class="section-label reveal-left" data-i18n="proj_label">// 03 — Projetos</p>
-  <h2 class="section-title reveal" data-i18n="proj_title">Projetos em Destaque</h2>
+  <p class="section-label reveal-left" data-i18n="proj_label">// 04 — Projetos</p>
+  <h2 class="section-title reveal" data-i18n="proj_title">Outros Projetos</h2>
   <div class="projects-grid">
 
     <div class="project-card reveal" onmousemove="projectGlow(event,this)" onmouseleave="resetGlow(this)">
       <div class="project-num">01 /</div>
-      <div class="project-status status-active">● <span data-i18n="status_active">Ativo</span></div>
-      <div class="project-title">✈️ Air Operations System</div>
-      <p class="project-desc"><span data-i18n="proj1_desc">Plataforma de gestão operacional aérea com hierarquia de usuários, relatórios completos e controle granular de permissões por função.</span></p>
-      <div class="project-footer">
-        <div class="project-stack">
-          <span class="stack-badge">Java</span>
-          <span class="stack-badge">Spring Boot</span>
-          <span class="stack-badge">PostgreSQL</span>
-        </div>
-        <a href="https://github.com/phmacieldev" target="_blank" class="project-link"><span data-i18n="proj_view">Ver →</span></a>
-      </div>
-    </div>
-
-    <div class="project-card reveal" onmousemove="projectGlow(event,this)" onmouseleave="resetGlow(this)">
-      <div class="project-num">02 /</div>
       <div class="project-status status-done">✓ <span data-i18n="status_done">Concluído</span></div>
       <div class="project-title">🔍 FIPE Table Search</div>
       <p class="project-desc"><span data-i18n="proj2_desc">Consulta de preços de veículos integrando a API pública FIPE. Busca por marca, modelo e ano com apresentação limpa dos dados.</span></p>
@@ -716,8 +855,8 @@
     </div>
 
     <div class="project-card reveal" onmousemove="projectGlow(event,this)" onmouseleave="resetGlow(this)">
-      <div class="project-num">03 /</div>
-      <div class="project-status status-done">✓ Complete</div>
+      <div class="project-num">02 /</div>
+      <div class="project-status status-done">✓ <span data-i18n="status_done">Concluído</span></div>
       <div class="project-title">👥 Gestão de Vagas</div>
       <p class="project-desc"><span data-i18n="proj3_desc">Sistema de gestão de vagas com papéis distintos para candidatos e recrutadores, fluxo de candidatura e gerenciamento de dados.</span></p>
       <div class="project-footer">
@@ -731,7 +870,7 @@
     </div>
 
     <div class="project-card reveal" onmousemove="projectGlow(event,this)" onmouseleave="resetGlow(this)">
-      <div class="project-num">04 /</div>
+      <div class="project-num">03 /</div>
       <div class="project-status status-active">● <span data-i18n="status_wip">Em Desenvolvimento</span></div>
       <div class="project-title">✅ Gamified TodoList</div>
       <p class="project-desc"><span data-i18n="proj4_desc">Plataforma de produtividade com mecânicas de recompensa e progressão. Transforma tarefas diárias em experiência engajante com pontos e metas.</span></p>
@@ -745,8 +884,8 @@
     </div>
 
     <div class="project-card reveal" onmousemove="projectGlow(event,this)" onmouseleave="resetGlow(this)">
-      <div class="project-num">05 /</div>
-      <div class="project-status status-done">✓ Complete</div>
+      <div class="project-num">04 /</div>
+      <div class="project-status status-done">✓ <span data-i18n="status_done">Concluído</span></div>
       <div class="project-title">🏺 Beca Ateliê</div>
       <p class="project-desc"><span data-i18n="proj5_desc">Site elegante para uma marca de cerâmicas artesanais. Focado em apresentação visual e interface limpa para destacar os produtos.</span></p>
       <div class="project-footer">
@@ -969,10 +1108,10 @@ window.addEventListener('scroll', () => {
 const translations = {
   pt: {
     // nav
-    nav_about: 'Sobre', nav_projects: 'Projetos', nav_brand: 'Marca',
+    nav_about: 'Sobre', nav_projects: 'Projetos', nav_brand: 'Marca', nav_featured: 'Air Ops',
     nav_contact: 'Contato', nav_status: 'Aberto a oportunidades',
     // hero
-    hero_tag: '// Desenvolvedor Backend',
+    hero_tag: '// Backend Engineer',
     hero_desc1: 'Construindo <strong>sistemas backend robustos</strong> com Java &amp; Spring Boot.',
     hero_desc2: 'Apaixonado por <strong>arquitetura limpa</strong>, APIs REST',
     hero_desc3: 'e soluções escaláveis que realmente funcionam.',
@@ -989,8 +1128,20 @@ const translations = {
     skill_backend_desc: 'Stack principal para construção de APIs e sistemas server-side.',
     skill_devops: 'DevOps &amp; Ferramentas', skill_devops_desc: 'Ferramentas de workflow, conteinerização e colaboração.',
     skill_arch: 'Arquitetura', skill_arch_desc: 'Princípios e padrões para sistemas escaláveis e sustentáveis.',
+    // featured
+    feat_label: '// 03 — Featured Project', feat_title: 'Air Ops System',
+    feat_badge: 'Sistema Real em Produção', feat_name: 'Air Support Division — Backend System',
+    feat_sub: 'API REST · JWT Auth · RBAC · Docker · PostgreSQL · Swagger',
+    feat_btn_back: 'Backend →', feat_btn_front: 'Frontend →',
+    feat_desc: 'Sistema operacional completo para gestão interna de uma divisão aérea, com hierarquia de 7 ranks, autenticação JWT stateless, controle de acesso granular por função (RBAC), sistema de score automático para progressão de pilotos, logs de voo, relatórios de desempenho e integração com Discord via webhooks.',
+    feat_arch_label: '// Arquitetura', arch_client: 'Frontend',
+    feat_h1_label: 'Autenticação', feat_h1: 'JWT stateless · Spring Security 7 · <code style="font-size:0.72rem;color:var(--accent);background:rgba(79,142,247,0.08);padding:0.1rem 0.3rem;border-radius:2px;">@PreAuthorize</code> por role',
+    feat_h2_label: 'Hierarquia', feat_h2: '7 ranks · TRAINEE → LEAD · imunidade a rebaixamento automático',
+    feat_h3_label: 'Score Engine',
+    feat_h4: 'Documentação completa · fluxo de autorização JWT integrado',
+    feat_endpoints_label: '// Endpoints principais', feat_ranks_label: '// Hierarquia de Ranks',
     // projects
-    proj_label: '// 03 — Projetos', proj_title: 'Projetos em Destaque',
+    proj_label: '// 04 — Projetos', proj_title: 'Outros Projetos',
     status_active: 'Ativo', status_done: 'Concluído', status_wip: 'Em Desenvolvimento',
     proj1_desc: 'Plataforma de gestão operacional aérea com hierarquia de usuários, relatórios completos e controle granular de permissões por função.',
     proj2_desc: 'Consulta de preços de veículos integrando a API pública FIPE. Busca por marca, modelo e ano com apresentação limpa dos dados.',
@@ -999,17 +1150,17 @@ const translations = {
     proj5_desc: 'Site elegante para uma marca de cerâmicas artesanais. Focado em apresentação visual e interface limpa para destacar os produtos.',
     proj_more: 'Mais projetos no GitHub', proj_view: 'Ver →', proj_github_btn: 'Ver GitHub →',
     // stats
-    stats_label: '// 04 — Números', stats_title: 'Em Números',
+    stats_label: '// 05 — Números', stats_title: 'Em Números',
     stat_repos: 'Repositórios', stat_projects: 'Projetos', stat_years: 'Anos Desenvolvendo', stat_commit: 'Comprometimento',
     // brand
-    brand_label: '// 05 — Identidade', brand_title: 'A Marca',
+    brand_label: '// 06 — Identidade', brand_title: 'A Marca',
     brand_desc: 'A marca <strong style="color:var(--text)">PHM</strong> representa a identidade profissional construída sobre três pilares — <strong style="color:var(--text)">Precisão</strong>, <strong style="color:var(--text)">Honestidade</strong> e <strong style="color:var(--text)">Maestria</strong> — valores que guiam cada linha de código.',
     brand_primary: 'Marca Principal', brand_dark: 'Variante Escura',
     brand_light: 'Variante Clara', brand_company: 'Futura Empresa',
     brand_dark_desc: 'Versão horizontal para uso<br/>em assinaturas e headers.',
     brand_light_desc: 'Para documentos, currículos<br/>e apresentações em fundo claro.',
     // contact
-    contact_label: '// 06 — Contato',
+    contact_label: '// 07 — Contato',
     contact_big1: 'Vamos construir<br/>', contact_big2: 'algo juntos.',
     contact_sub1: 'Aberto a novas oportunidades, colaborações e projetos interessantes.',
     contact_sub2: 'Entre em contato — respondo rápido.',
@@ -1018,15 +1169,15 @@ const translations = {
     footer_craft: 'Feito com precisão.',
   },
   en: {
-    nav_about: 'About', nav_projects: 'Projects', nav_brand: 'Brand',
+    nav_about: 'About', nav_projects: 'Projects', nav_brand: 'Brand', nav_featured: 'Air Ops',
     nav_contact: 'Contact', nav_status: 'Open to work',
-    hero_tag: '// Backend Developer',
+    hero_tag: '// Backend Engineer',
     hero_desc1: 'Building <strong>robust backend systems</strong> with Java &amp; Spring Boot.',
     hero_desc2: 'Passionate about <strong>clean architecture</strong>, REST APIs,',
     hero_desc3: 'and scalable solutions that actually work.',
     hero_btn: 'View Projects →', scroll_txt: 'Scroll',
     about_label: '// 01 — About', about_title: 'Who I Am',
-    about_p1: "I'm <strong>Pedro Henrique Maciel</strong>, a backend developer based in <strong>Rio de Janeiro, Brazil</strong>, focused on building well-structured, high-quality systems.",
+    about_p1: "I'm <strong>Pedro Henrique Maciel</strong>, a backend engineer based in <strong>Rio de Janeiro, Brazil</strong>, focused on building well-structured, high-quality systems.",
     about_p2: 'My main stack revolves around <strong>Java</strong> and <strong>Spring Boot</strong>, with solid experience designing <strong>REST APIs</strong>, relational databases with <strong>PostgreSQL</strong>, and scalable microservice-oriented architectures.',
     about_p3: 'I care deeply about <strong>clean code</strong>, SOLID principles, and writing software that is easy to read, test, and maintain — not just software that works.',
     about_p4: 'Currently expanding into <strong>DevOps</strong>, Docker, and cloud infrastructure to become a more complete backend engineer.',
@@ -1035,7 +1186,18 @@ const translations = {
     skill_backend_desc: 'Core stack for building APIs and server-side systems.',
     skill_devops: 'DevOps &amp; Tools', skill_devops_desc: 'Tools for workflow, containerization and collaboration.',
     skill_arch: 'Architecture', skill_arch_desc: 'Principles and patterns for scalable, maintainable systems.',
-    proj_label: '// 03 — Work', proj_title: 'Featured Projects',
+    feat_label: '// 03 — Featured Project', feat_title: 'Air Ops System',
+    feat_badge: 'Real System in Production', feat_name: 'Air Support Division — Backend System',
+    feat_sub: 'REST API · JWT Auth · RBAC · Docker · PostgreSQL · Swagger',
+    feat_btn_back: 'Backend →', feat_btn_front: 'Frontend →',
+    feat_desc: 'Full operational system for internal management of an air division, with 7-rank hierarchy, stateless JWT authentication, granular role-based access control (RBAC), automatic score engine for pilot progression, flight logs, performance reports and Discord webhook integration.',
+    feat_arch_label: '// Architecture', arch_client: 'Frontend',
+    feat_h1_label: 'Authentication', feat_h1: 'Stateless JWT · Spring Security 7 · <code style="font-size:0.72rem;color:var(--accent);background:rgba(79,142,247,0.08);padding:0.1rem 0.3rem;border-radius:2px;">@PreAuthorize</code> by role',
+    feat_h2_label: 'Hierarchy', feat_h2: '7 ranks · TRAINEE → LEAD · immunity to automatic demotion',
+    feat_h3_label: 'Score Engine',
+    feat_h4: 'Full documentation · integrated JWT authorization flow',
+    feat_endpoints_label: '// Main Endpoints', feat_ranks_label: '// Rank Hierarchy',
+    proj_label: '// 04 — Projects', proj_title: 'Other Projects',
     status_active: 'Active', status_done: 'Complete', status_wip: 'In Progress',
     proj1_desc: 'Operational air management platform with user hierarchy, comprehensive reporting and granular permission control across organizational roles.',
     proj2_desc: "Vehicle price consultation tool integrating with Brazil's official FIPE public API. Search by brand, model and year with clean data presentation.",
@@ -1043,15 +1205,15 @@ const translations = {
     proj4_desc: 'Productivity platform with reward mechanics and progression systems. Turns daily tasks into an engaging experience with points and milestones.',
     proj5_desc: 'Elegant showcase website for a handcrafted ceramics brand. Focused on visual presentation and clean UI to highlight artisan products.',
     proj_more: 'More projects on GitHub', proj_view: 'View →', proj_github_btn: 'View GitHub →',
-    stats_label: '// 04 — Numbers', stats_title: 'By the Numbers',
-    stat_repos: 'Repositories', stat_projects: 'Featured Projects', stat_years: 'Years Building', stat_commit: 'Commitment',
-    brand_label: '// 05 — Identity', brand_title: 'The Brand',
+    stats_label: '// 05 — Numbers', stats_title: 'By the Numbers',
+    stat_repos: 'Repositories', stat_projects: 'Projects', stat_years: 'Years Building', stat_commit: 'Commitment',
+    brand_label: '// 06 — Identity', brand_title: 'The Brand',
     brand_desc: 'The <strong style="color:var(--text)">PHM</strong> brand represents a professional identity built on three pillars — <strong style="color:var(--text)">Precision</strong>, <strong style="color:var(--text)">Honesty</strong> and <strong style="color:var(--text)">Mastery</strong> — values that guide every line of code.',
     brand_primary: 'Primary Mark', brand_dark: 'Dark Variant',
     brand_light: 'Light Variant', brand_company: 'Future Company',
     brand_dark_desc: 'Horizontal version for use<br/>in signatures and headers.',
     brand_light_desc: 'For documents, resumes<br/>and light-background presentations.',
-    contact_label: '// 06 — Contact',
+    contact_label: '// 07 — Contact',
     contact_big1: "Let's build<br/>", contact_big2: 'something.',
     contact_sub1: 'Open to new opportunities, collaborations and interesting projects.',
     contact_sub2: 'Reach out — I respond fast.',
